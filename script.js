@@ -1,32 +1,16 @@
 const contentContainer = document.getElementById('contentContainer');
-const topNav = document.querySelector('.top-nav');
 const homeBtn = document.getElementById('homeBtn');
+const popupMenu = document.getElementById('popupMenu');
 
 const pageButtonsContainer = document.createElement('div');
 pageButtonsContainer.classList.add('page-buttons');
-
-// Insert buttons container right after homeBtn
 homeBtn.insertAdjacentElement('afterend', pageButtonsContainer);
 
-const popupMenu = document.getElementById('popupMenu');
-homeBtn.addEventListener('click', () => {
-  popupMenu.classList.toggle('hidden');
-});
-
-// Hide popup when clicking outside
-document.addEventListener('click', (event) => {
-  const isClickInsideMenu = popupMenu.contains(event.target);
-  const isClickOnButton = homeBtn.contains(event.target);
-
-  if (!isClickInsideMenu && !isClickOnButton) {
-    popupMenu.classList.add('hidden');
-  }
-});
-
-
+let currentIndex = -1;
 const MAX_PAGES = 10;
 let pagesFound = 0;
 
+// Create page buttons
 function createPageButton(pageNum) {
   const btn = document.createElement('button');
   btn.classList.add('page-btn');
@@ -37,6 +21,7 @@ function createPageButton(pageNum) {
   pageButtonsContainer.appendChild(btn);
 }
 
+// Load page content
 function loadPage(pageNum) {
   fetch(`page${pageNum}.html`)
     .then(response => {
@@ -52,23 +37,16 @@ function loadPage(pageNum) {
     });
 }
 
+// Highlight current page button
 function highlightButton(pageNum) {
   document.querySelectorAll('.page-btn').forEach(btn => {
     btn.style.backgroundColor = (btn.dataset.page == pageNum) ? 'gold' : 'rgba(0,0,0,0.6)';
   });
 }
 
-document.addEventListener('keydown', (event) => {
-  const key = event.key;
-  if (['1','2','3','4','5','6','7','8','9','0'].includes(key)) {
-    let pageNum = key === '0' ? '10' : key;
-    const button = document.querySelector(`.page-btn[data-page="${pageNum}"]`);
-    if(button) button.click();
-  }
-});
-
+// Detect how many pages exist
 async function detectPages() {
-  for(let i=1; i<=MAX_PAGES; i++) {
+  for (let i = 1; i <= MAX_PAGES; i++) {
     try {
       const response = await fetch(`page${i}.html`);
       if (response.ok) {
@@ -81,6 +59,7 @@ async function detectPages() {
       break;
     }
   }
+
   if (pagesFound > 0) {
     loadPage(1);
   } else {
@@ -89,3 +68,86 @@ async function detectPages() {
 }
 
 detectPages();
+
+// Toggle menu with button
+homeBtn.addEventListener('click', () => {
+  popupMenu.classList.toggle('hidden');
+  if (!popupMenu.classList.contains('hidden')) {
+    currentIndex = 0;
+    updateMenuSelection();
+  } else {
+    currentIndex = -1;
+    updateMenuSelection();
+  }
+});
+
+// Toggle menu with `~` key
+document.addEventListener('keydown', (event) => {
+  if (event.key === '`' || event.key === '~') {
+    popupMenu.classList.toggle('hidden');
+    if (!popupMenu.classList.contains('hidden')) {
+      currentIndex = 0;
+      updateMenuSelection();
+    } else {
+      currentIndex = -1;
+      updateMenuSelection();
+    }
+  }
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (event) => {
+  const isClickInsideMenu = popupMenu.contains(event.target);
+  const isClickOnButton = homeBtn.contains(event.target);
+
+  if (!isClickInsideMenu && !isClickOnButton) {
+    popupMenu.classList.add('hidden');
+    currentIndex = -1;
+    updateMenuSelection();
+  }
+});
+
+// Keyboard: number keys to switch pages
+document.addEventListener('keydown', (event) => {
+  const key = event.key;
+  if (popupMenu.classList.contains('hidden') && /^[1-9]$|^0$/.test(key)) {
+    let pageNum = key === '0' ? '10' : key;
+    const button = document.querySelector(`.page-btn[data-page="${pageNum}"]`);
+    if (button) button.click();
+  }
+});
+
+// Arrow key navigation inside popup menu
+document.addEventListener('keydown', (event) => {
+  if (popupMenu.classList.contains('hidden')) return;
+
+  const menuItems = Array.from(popupMenu.querySelectorAll('li'));
+  if (menuItems.length === 0) return;
+
+  if (event.key === 'ArrowDown') {
+    event.preventDefault();
+    currentIndex = (currentIndex + 1) % menuItems.length;
+    updateMenuSelection(menuItems);
+  }
+
+  if (event.key === 'ArrowUp') {
+    event.preventDefault();
+    currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+    updateMenuSelection(menuItems);
+  }
+
+  if (event.key === 'Enter' && currentIndex >= 0) {
+    menuItems[currentIndex].click();
+  }
+});
+
+// Highlight menu item
+function updateMenuSelection(menuItems = Array.from(popupMenu.querySelectorAll('li'))) {
+  menuItems.forEach((item, index) => {
+    item.classList.toggle('selected', index === currentIndex);
+  });
+
+  if (menuItems[currentIndex]) {
+    menuItems[currentIndex].scrollIntoView({ block: 'nearest' });
+  }
+}
