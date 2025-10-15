@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Single Page UI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <!-- Top Navigation -->
+  <div class="top-nav">
+    <button id="homeBtn" class="icon-btn" aria-label="Menu">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="3" width="6" height="6"/>
+    <rect x="15" y="3" width="6" height="6"/>
+    <rect x="3" y="15" width="6" height="6"/>
+    <rect x="15" y="15" width="6" height="6"/>
+  </svg>
+</button>
+
+    <div class="page-buttons">
+    </div>
+  </div>
+
+  <!-- Popup Menu -->
+  <div id="popupMenu" class="popup hidden">
+    <ul>
+      <li><strong>📦 Apps</strong></li>
+      <li>📘 Learn</li>
+      <li>🚀 Trigger</li>
+      <li>🖌️ Style</li>
+      <li>⚙️ Setup</li>
+      <li>💾 Install</li>
+      <li>🗑️ Remove</li>
+      <li>🔄 Update</li>
+      <li>ℹ️ About</li>
+      <li>🖥️ System</li>
+    </ul>
+  </div>
+
+  <!-- Content will be loaded here -->
+  <div class="content" id="contentContainer">Loading...</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
