@@ -8,6 +8,18 @@ homeBtn.insertAdjacentElement('afterend', pageButtonsContainer);
 
 let currentIndex = -1;
 
+const pageCache = {};
+
+function preloadPages() {
+  for (let i = 1; i <= 3; i++) {
+    fetch(`page${i}.html`)
+      .then(response => response.text())
+      .then(html => {
+        pageCache[i] = html;
+      });
+  }
+}
+
 // Create page buttons
 function createPageButton(pageNum) {
   const btn = document.createElement('button');
@@ -21,6 +33,12 @@ function createPageButton(pageNum) {
 
 // Load page content
 function loadPage(pageNum) {
+  if (pageCache[pageNum]) {
+    contentContainer.innerHTML = pageCache[pageNum];
+    highlightButton(pageNum);
+    return;
+  }
+
   fetch(`page${pageNum}.html`)
     .then(response => {
       if (!response.ok) throw new Error('Page not found');
@@ -46,6 +64,7 @@ loadPage(0);
 createPageButton(1);
 createPageButton(2);
 createPageButton(3);
+preloadPages();
 
 // Add mouseover listeners to menu items to sync with keyboard selection
 const menuItemsForMouse = Array.from(popupMenu.querySelectorAll('li'));
