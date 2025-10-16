@@ -45,6 +45,7 @@ function loadPage(pageNum) {
       return response.text();
     })
     .then(html => {
+      pageCache[pageNum] = html;
       contentContainer.innerHTML = html;
       highlightButton(pageNum);
     })
