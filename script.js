@@ -36,10 +36,10 @@ function loadPage(pageNum) {
   if (pageCache[pageNum]) {
     contentContainer.innerHTML = pageCache[pageNum];
     highlightButton(pageNum);
-    return;
+    return Promise.resolve();
   }
 
-  fetch(`page${pageNum}.html`)
+  return fetch(`page${pageNum}.html`)
     .then(response => {
       if (!response.ok) throw new Error('Page not found');
       return response.text();
@@ -60,11 +60,12 @@ function highlightButton(pageNum) {
   });
 }
 
-loadPage(0);
+loadPage(0).then(() => {
+  preloadPages();
+});
 createPageButton(1);
 createPageButton(2);
 createPageButton(3);
-preloadPages();
 
 // Add mouseover listeners to menu items to sync with keyboard selection
 const menuItemsForMouse = Array.from(popupMenu.querySelectorAll('li'));
