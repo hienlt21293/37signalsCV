@@ -40,7 +40,7 @@ function loadPage(pageNum) {
 // Highlight current page button
 function highlightButton(pageNum) {
   document.querySelectorAll('.page-btn').forEach(btn => {
-    btn.style.backgroundColor = (btn.dataset.page == pageNum) ? 'gold' : 'rgba(0,0,0,0.6)';
+    btn.style.backgroundColor = (btn.dataset.page == pageNum) ? 'rgba(41, 20, 20, 0.7)' : 'transparent';
   });
 }
 
@@ -97,7 +97,7 @@ homeBtn.addEventListener('click', () => {
 
 // Toggle menu with `~` key
 document.addEventListener('keydown', (event) => {
-  if (event.key === '`' || event.key === '~') {
+  if (event.key === '`' || event.key === '~'  || event.key === '.') {
     popupMenu.classList.toggle('hidden');
     if (!popupMenu.classList.contains('hidden')) {
       currentIndex = -1;
