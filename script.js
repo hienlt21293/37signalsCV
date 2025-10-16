@@ -59,21 +59,35 @@ async function detectPages() {
       break;
     }
   }
-
-  if (pagesFound > 0) {
-    loadPage(1);
-  } else {
-    contentContainer.innerHTML = "No pages found.";
-  }
 }
 
+loadPage(0);
 detectPages();
+
+// Add mouseover listeners to menu items to sync with keyboard selection
+const menuItemsForMouse = Array.from(popupMenu.querySelectorAll('li'));
+menuItemsForMouse.forEach((item, index) => {
+  item.addEventListener('mouseover', () => {
+    if (currentIndex !== index) {
+      currentIndex = index;
+      updateMenuSelection(menuItemsForMouse);
+    }
+  });
+
+  // Add click listener to delegate to link
+  item.addEventListener('click', (event) => {
+    const link = item.querySelector('a');
+    if (link && event.target !== link) {
+      link.click();
+    }
+  });
+});
 
 // Toggle menu with button
 homeBtn.addEventListener('click', () => {
   popupMenu.classList.toggle('hidden');
   if (!popupMenu.classList.contains('hidden')) {
-    currentIndex = 0;
+    currentIndex = -1;
     updateMenuSelection();
   } else {
     currentIndex = -1;
@@ -86,7 +100,7 @@ document.addEventListener('keydown', (event) => {
   if (event.key === '`' || event.key === '~') {
     popupMenu.classList.toggle('hidden');
     if (!popupMenu.classList.contains('hidden')) {
-      currentIndex = 0;
+      currentIndex = -1;
       updateMenuSelection();
     } else {
       currentIndex = -1;
@@ -110,10 +124,13 @@ document.addEventListener('click', (event) => {
 // Keyboard: number keys to switch pages
 document.addEventListener('keydown', (event) => {
   const key = event.key;
-  if (popupMenu.classList.contains('hidden') && /^[1-9]$|^0$/.test(key)) {
-    let pageNum = key === '0' ? '10' : key;
-    const button = document.querySelector(`.page-btn[data-page="${pageNum}"]`);
-    if (button) button.click();
+  if (popupMenu.classList.contains('hidden')) {
+    if (key === '0' || key === 'w') {
+      loadPage(0);
+    } else if (/^[1-9]$/.test(key)) {
+      const button = document.querySelector(`.page-btn[data-page="${key}"]`);
+      if (button) button.click();
+    }
   }
 });
 
@@ -126,18 +143,31 @@ document.addEventListener('keydown', (event) => {
 
   if (event.key === 'ArrowDown') {
     event.preventDefault();
-    currentIndex = (currentIndex + 1) % menuItems.length;
+    if (currentIndex === menuItems.length - 1) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
     updateMenuSelection(menuItems);
   }
 
   if (event.key === 'ArrowUp') {
     event.preventDefault();
-    currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+    if (currentIndex <= 0) {
+        currentIndex = menuItems.length - 1;
+    } else {
+        currentIndex--;
+    }
     updateMenuSelection(menuItems);
   }
 
   if (event.key === 'Enter' && currentIndex >= 0) {
-    menuItems[currentIndex].click();
+    const link = menuItems[currentIndex].querySelector('a');
+    if (link) {
+      link.click();
+    } else {
+      menuItems[currentIndex].click();
+    }
   }
 });
 

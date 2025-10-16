@@ -71,6 +71,11 @@ body, html {
   cursor: pointer;
 }
 
+.popup li a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .hidden {
   display: none;
 }
@@ -108,7 +113,6 @@ body, html {
   fill: white;
 }
 
-.popup li:hover,
 .popup li.selected {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
