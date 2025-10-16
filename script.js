@@ -7,8 +7,6 @@ pageButtonsContainer.classList.add('page-buttons');
 homeBtn.insertAdjacentElement('afterend', pageButtonsContainer);
 
 let currentIndex = -1;
-const MAX_PAGES = 10;
-let pagesFound = 0;
 
 // Create page buttons
 function createPageButton(pageNum) {
@@ -44,25 +42,10 @@ function highlightButton(pageNum) {
   });
 }
 
-// Detect how many pages exist
-async function detectPages() {
-  for (let i = 1; i <= MAX_PAGES; i++) {
-    try {
-      const response = await fetch(`page${i}.html`);
-      if (response.ok) {
-        createPageButton(i);
-        pagesFound++;
-      } else {
-        break;
-      }
-    } catch (err) {
-      break;
-    }
-  }
-}
-
 loadPage(0);
-detectPages();
+createPageButton(1);
+createPageButton(2);
+createPageButton(3);
 
 // Add mouseover listeners to menu items to sync with keyboard selection
 const menuItemsForMouse = Array.from(popupMenu.querySelectorAll('li'));
