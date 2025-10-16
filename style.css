@@ -33,7 +33,7 @@ body, html {
 
 .top-nav button {
   background: transparent;
-  color: white;
+  color: rgba(67, 46, 46, 0.79);
   border: none;
   padding: 6px 10px;
   font-size: 16px;
@@ -110,11 +110,11 @@ body, html {
 .icon-btn svg {
   width: 20px;
   height: 20px;
-  fill: white;
+  fill: rgba(67, 46, 46, 0.79);
 }
 
 .popup li.selected {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(67, 46, 46, 0.79);
   border-radius: 4px;
   color: gold;
 }

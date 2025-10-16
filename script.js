@@ -40,7 +40,7 @@ function loadPage(pageNum) {
 // Highlight current page button
 function highlightButton(pageNum) {
   document.querySelectorAll('.page-btn').forEach(btn => {
-    btn.style.backgroundColor = (btn.dataset.page == pageNum) ? 'rgba(41, 20, 20, 0.7)' : 'transparent';
+    btn.style.backgroundColor = (btn.dataset.page == pageNum) ? 'rgba(1, 0, 0, 0.7)' : 'transparent';
   });
 }
 
