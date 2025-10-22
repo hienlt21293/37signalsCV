@@ -13,9 +13,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'stolf';
+  src: url('stolf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'albert';
+  src: url('albertsan.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body, html {
   height: 100%;
-  font-family: "Courier New", monospace;
+  font-family: 'albert';
   background: url('background.webp') no-repeat center center/cover;
   background-attachment: fixed;
   color: rgb(0, 0, 0);
