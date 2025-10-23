@@ -11,7 +11,7 @@ let currentIndex = -1;
 const pageCache = {};
 
 function preloadPages() {
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 7; i++) {
     fetch(`page${i}.html`)
       .then(response => response.text())
       .then(html => {
@@ -70,6 +70,7 @@ createPageButton(3);
 createPageButton(4);
 createPageButton(5);
 createPageButton(6);
+createPageButton(7);
 
 // Add mouseover listeners to menu items to sync with keyboard selection
 const menuItemsForMouse = Array.from(popupMenu.querySelectorAll('li'));
