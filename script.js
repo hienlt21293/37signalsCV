@@ -11,7 +11,7 @@ let currentIndex = -1;
 const pageCache = {};
 
 function preloadPages() {
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 5; i++) {
     fetch(`page${i}.html`)
       .then(response => response.text())
       .then(html => {
