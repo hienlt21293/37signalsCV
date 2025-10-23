@@ -67,6 +67,9 @@ loadPage(0).then(() => {
 createPageButton(1);
 createPageButton(2);
 createPageButton(3);
+createPageButton(4);
+createPageButton(5);
+createPageButton(6);
 
 // Add mouseover listeners to menu items to sync with keyboard selection
 const menuItemsForMouse = Array.from(popupMenu.querySelectorAll('li'));
