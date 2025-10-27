@@ -11,7 +11,7 @@ let currentIndex = -1;
 const pageCache = {};
 
 function preloadPages() {
-  for (let i = 1; i <= 7; i++) {
+  for (let i = 0; i <= 7; i++) {
     fetch(`page${i}.html`)
       .then(response => response.text())
       .then(html => {
@@ -64,6 +64,7 @@ function highlightButton(pageNum) {
 loadPage(0).then(() => {
   preloadPages();
 });
+createPageButton(0);
 createPageButton(1);
 createPageButton(2);
 createPageButton(3);
