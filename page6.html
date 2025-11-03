@@ -1,12 +1,45 @@
-<div style="display: flex; align-items: flex-start; gap: 1em;">
-  <img src="aarista.png" alt="NTT"
-       style="height: 4em; aspect-ratio: 1 / 1; width: auto; object-fit: contain; flex-shrink: 0;">
-  <div style="display: flex; flex-direction: column; line-height: 2;">
-    <div style="font-weight: bold;">DevOps Engineer</div>
-    <div style="font-size: 0.9em; margin-top: 0.2em;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="role-header">
+  <img src="aarista.png" alt="Aarista">
+  <div style="display: flex; flex-direction: column;">
+    <div class="role-title">DevOps Engineer</div>
+    <div class="role-info">
       <i><a href="https://aarista.com/" target="_blank">Aarista</a> | Jan 2025 – ongoing</i>
     </div>
   </div>
 </div>
-<p><b><em>About the company:</em></b> Aarista is a U.S.-based healthcare technology company that provides software and services to healthcare providers, patients, and partners to improve patient outcomes.</p> <p><b><em>What I did:</em></b> Developed <b>embedded software in C/C++</b> for Electronic Control Units (ECUs), focusing on features such as light control, keyless entry, and key fob functionality.</p>
-<p><b><em>What I remember most:</em></b><br> Although this role wasn’t directly related to SRE, DevOps, or web development, it gave me a strong foundation in core software engineering principles.<br> I gained practical experience with the <b>software development lifecycle</b>, <b>version control</b>, and <b>cross-team collaboration</b>.<br> Working in a resource-constrained environment also taught (or forced) me to write <b>efficient, optimized code</b> - balancing performance and memory usage effectively.</p>
+
+<p>
+  <b><em>About the company:</em></b>
+  Aarista is a U.S.-based healthcare technology company providing cloud-based software and analytics solutions that help healthcare providers and patients improve treatment outcomes and operational efficiency.
+</p>
+
+<p>    <b><em>What I did:</em></b>
+    <br>- Set up and manage infrastructure and CI/CD pipelines on Azure, ensuring <strong>100%</strong> compliance with HIPAA data privacy regulations.
+    <br>- Define and monitor SLIs/SLOs, achieving <strong>99.95%</strong> availability and reducing costs by <strong>XX%</strong> through performance optimization.
+    <br>- Collaborate with the development team to troubleshoot and resolve an average of <strong>XX</strong> performance issues per month.
+    <br>- Implemented a new observability pipeline, which improved the mean time to detection (MTTD) of incidents by <strong>XX%</strong>.
+</p>
+<p>Techstack: Azure DevOps pipeline (YAML + Classic), Azure App Service (ASP .NET & .NET Core), Application Insights, Container App, FrontDoor, Key Vault, Application Gateway, Azure SQL Database, Azure Cache for Redis.</p>
+
+<p>
+  <b><em>What I remember most:</em></b><br>
+October 29, 2025 - Azure FrontDoor global outage. The service was completely down. Our web app was inaccessible. 
+I applied a temporary workaround by <a href="https://learn.microsoft.com/en-us/azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery#approach" target="_blank">adding Azure Traffic Manager in front of FrontDoor</a> (for most solutions, Azure recommend the use either Front Door or Azure Traffic Manager, but not both). Our service availability was restored within 30 minutes, minimizing user impact. 
+<br>I remember this the most because I had read the documentation about this architecture pattern. So when the incident happened, it was an "all the dots connected" moment for me.
+
+</p>
+
+</body>
+</html>

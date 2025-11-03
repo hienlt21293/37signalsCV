@@ -150,3 +150,73 @@ body::before {
 .spacer {
   height: 15px;
 }
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: #111;
+  line-height: 1.3;
+  margin: 0.2em;
+}
+
+h1 {
+  font-family: 'stolf', monospace;
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 0.4em 0 0.8em 0;
+}
+
+i, em {
+  font-style: italic;
+  font-weight: 600;
+}
+
+b, strong {
+  font-weight: 800;
+}
+
+b em, em b, strong em, em strong {
+  font-style: italic;
+  font-weight: 800;
+}
+
+.role-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.role-title {
+  font-weight: 800;
+}
+
+.role-info {
+  font-size: 0.9em;
+  margin-top: 0.2em;
+}
+
+img {
+  height: 4em;
+  aspect-ratio: 1 / 1;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}

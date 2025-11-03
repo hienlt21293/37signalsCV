@@ -1,11 +1,48 @@
-<div style="display: flex; align-items: flex-start; gap: 1em;">
-  <img src="okxe.png" alt="NTT"
-       style="height: 4em; aspect-ratio: 1 / 1; width: auto; object-fit: contain; flex-shrink: 0;">
-  <div style="display: flex; flex-direction: column; line-height: 2;">
-    <div style="font-weight: bold;">Senior DevOps Engineer</div>
-    <div style="font-size: 0.9em; margin-top: 0.2em;">
-      <i><a href="https://www.okxe.vn/" target="_blank">OKXE</a> | July 2021 – May 2022</i>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="role-header">
+  <img src="okxe.png" alt="OKXE">
+  <div style="display: flex; flex-direction: column;">
+    <div class="role-title">Senior DevOps Engineer</div>
+    <div class="role-info">
+      <i><a href="https://www.okxe.vn/" target="_blank">OKXE</a> | Jul 2021 – May 2022</i>
     </div>
   </div>
 </div>
-<p><b><em>About the company:</em></b> HELLA is one of the world’s top 50 automotive suppliers, specializing in the development and production of advanced lighting technologies and electronic components for vehicles.</p> <p><b><em>What I did:</em></b> Developed <b>embedded software in C/C++</b> for Electronic Control Units (ECUs), focusing on features such as light control, keyless entry, and key fob functionality.</p> <p><b><em>Why I left:</em></b> I realized that embedded programming wasn’t the best fit for my interests or strengths. While I appreciated the technical challenges, I didn’t feel the same enthusiasm and motivation I was looking for in my work.</p> <p><b><em>What I remember most:</em></b><br> Although this role wasn’t directly related to SRE, DevOps, or web development, it gave me a strong foundation in core software engineering principles.<br> I gained practical experience with the <b>software development lifecycle</b>, <b>version control</b>, and <b>cross-team collaboration</b>.<br> Working in a resource-constrained environment also taught (or forced) me to write <b>efficient, optimized code</b> - balancing performance and memory usage effectively.</p>
+
+<p>
+  <b><em>About the company:</em></b>
+  OKXE is a technology startup providing an online marketplace for buying and selling used motorbikes in Vietnam.
+</p>
+
+<p>    <b><em>What I did:</em></b>
+    <br>- As the sole DevOps engineer, designed, built, and scaled a 3-tier web application on AWS, supporting a <strong>XX%</strong> growth in user base.
+    <br>- Implemented and managed CI/CD pipelines using AWS CodePipeline, which automated deployments and reduced release cycles by <strong>XX%</strong>.
+    <br>- Owned production incidents and monitoring, improving system reliability and achieving <strong>XX.X%</strong> uptime.
+    <br>- Performed cost optimization initiatives that reduced monthly AWS bills by <strong>XX%</strong> without sacrificing performance.
+    <br>- Conducted regular security audits and compliance checks, identifying and remediating <strong>XX</strong> critical vulnerabilities.
+</p>
+<p>
+  <b><em>What I remember most:</em></b><br>
+  - As in any fast-paced startup environment, I learned to balance peed and reliability under tight delivery cycles.<br>
+<i>- One particular incident that stands out:</i>
+During peak hours, we experienced a severe performance degradation - the website became extremely slow despite scaling up and out our infrastructure. 
+Upon reviewing metrics, I noticed that although our AWS OpenSearch cluster had many nodes, only one node showed abnormally high CPU utilization. 
+Further analysis revealed that the cluster’s largest index had just one shard per node, causing uneven load distribution and high query latency. 
+I reconfigured the index to use multiple shards and replicas, which evenly distributed traffic across nodes and restored normal performance within minutes. 
+This incident reinforced the importance of understanding underlying architecture and staying calm and analytical during high-pressure situations.
+
+</p>
+
+</body>
+</html>
