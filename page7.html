@@ -4,37 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
+<title>Cinch - Systems Engineer</title>
 </head>
 
 <body>
 
-<div class="role-header">
-  <img src="cinch.png" alt="Cinch">
-  <div style="display: flex; flex-direction: column;">
-    <div class="role-title">Systems Engineer</div> (Freelancer)
+<section class="role-header">
+  <img src="cinch.png" alt="Cinch Logo" class="icon">
+  <div class="role-text">
+    <div class="role-title">Systems Engineer (Freelancer)</div>
     <div class="role-info">
-      <i><a href="https://cinch.sg/" target="_blank">Cinch</a> | May 2025 – Oct 2025</i>
+      <a href="https://cinch.sg/" target="_blank" rel="noopener noreferrer">Cinch</a> | May 2025 – Oct 2025
     </div>
   </div>
-</div>
+</section>
 
-<p>
-  <b><em>About the company:</em></b>
-  Cinch is Asia’s leading <b>Device-as-a-Service (DaaS)</b> platform, providing flexible, subscription-based access to electronics such as phones, laptops, and tablets for both consumers and businesses.
-</p>
+<section>
+  <h2><i>About the company:</i></h2>
+  <p>
+    Cinch is Asia’s leading <b>Device-as-a-Service (DaaS)</b> platform, providing flexible, subscription-based access to electronics such as phones, laptops, and tablets for both consumers and businesses.
+  </p>
+</section>
 
-<p>    <b><em>What I did:</em></b>
-    <br>- Architected and built a new AWS infrastructure from scratch using Terraform, supporting <strong>XX</strong> services and <strong>XX</strong> users.
-    <br>- Established a CI/CD pipeline for a monorepo using GitHub Actions, which reduced deployment time by <strong>XX%</strong> and improved developer workflow.
-    <br>- Implemented a centralized monitoring and alerting stack with Grafana and Loki, improving visibility into system health and reducing incident detection time by <strong>XX%</strong>.
-</p>
+<section>
+  <h2><i>What I did:</i></h2>
+  <p>I was the sole DevOps engineer for the company, responsible for designing, building, and scaling their infrastructure:</p>
+  <ul>
+    <li>Architected and built new AWS infrastructure from scratch using Terraform, supporting <strong>15+</strong> microservices and <strong>XX</strong> users.</li>
+    <li><b>Monorepo enablement:</b> Consolidated services into a single repository; established shared packages and versioning strategy for consistent releases.</li>
+    <li><b>CI/CD (GitHub Actions):</b> Implemented a matrix strategy for parallel builds and deployments; added change detection to run only affected jobs, reducing CI cost and speeding feedback. Deployment time reduced by <strong>XX%</strong>.</li>
+    <li><b>Infrastructure as Code (IaC) at scale:</b> Structured Terraform folders with clear environments/modules layout and Terragrunt orchestration; authored reusable modules and leveraged public modules for efficiency.</li>
+    <li><b>Observability:</b> Deployed Prometheus, Loki, Grafana, Tempo with OpenTelemetry Collector for metrics/logs/traces correlation. Version-controlled dashboards via Git; integrated Grafana alerting with Slack. Improved incident detection by <strong>XX%</strong>.</li>
+    <li><b>ECS at scale:</b> Standardized Fargate services with monitoring enabled; implemented circuit breakers, auto-rollback, ALB integration, and metrics-driven autoscaling. Enabled internal service discovery and consistent labeling for SLOs.</li>
+    <li><b>Network design:</b> Designed non-overlapping CIDR VPCs, isolated workloads in private subnets, managed cross-VPC connectivity via VPC peering. Hardened ingress/egress rules, enforced IAM least privilege, MFA, and secure remote access with AWS Client VPN.</li>
+    <li>Prepared comprehensive handover documentation and conducted knowledge transfer sessions to ensure smooth transition and ongoing maintenance.</li>
+  </ul>
+</section>
 
-<p>
-  <b><em>What I remember most:</em></b><br>
-  
-</p>
+<section>
+  <h2><i>What I remember most:</i></h2>
+  <p>
+    This role was extremely hands-on and gave me full ownership of the platform. I especially remember the challenge of scaling ECS services with proper monitoring and implementing observability pipelines. Seeing the system stabilize under load after restructuring CI/CD, network, and IaC workflows was highly rewarding and reinforced the importance of automation, reliability, and maintainable architecture.
+  </p>
+</section>
 
 </body>
 </html>

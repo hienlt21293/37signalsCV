@@ -4,45 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
+<title>OKXE - Senior DevOps Engineer</title>
 </head>
 
 <body>
 
-<div class="role-header">
-  <img src="okxe.png" alt="OKXE">
-  <div style="display: flex; flex-direction: column;">
+<section class="role-header">
+  <img src="okxe.png" alt="OKXE Logo" class="icon">
+  <div class="role-text">
     <div class="role-title">Senior DevOps Engineer</div>
     <div class="role-info">
-      <i><a href="https://www.okxe.vn/" target="_blank">OKXE</a> | Jul 2021 – May 2022</i>
+      <a href="https://www.okxe.vn/" target="_blank" rel="noopener noreferrer">OKXE</a> | Jul 2021 – May 2022
     </div>
   </div>
-</div>
+</section>
 
-<p>
-  <b><em>About the company:</em></b>
-  OKXE is a technology startup providing an online marketplace for buying and selling used motorbikes in Vietnam.
-</p>
+<section>
+  <h2><i>About the company:</i></h2>
+  <p>OKXE is a technology startup providing an online marketplace for buying and selling used motorbikes in Vietnam.</p>
+</section>
 
-<p>    <b><em>What I did:</em></b>
-    <br>- As the sole DevOps engineer, designed, built, and scaled a 3-tier web application on AWS, supporting a <strong>XX%</strong> growth in user base.
-    <br>- Implemented and managed CI/CD pipelines using AWS CodePipeline, which automated deployments and reduced release cycles by <strong>XX%</strong>.
-    <br>- Owned production incidents and monitoring, improving system reliability and achieving <strong>XX.X%</strong> uptime.
-    <br>- Performed cost optimization initiatives that reduced monthly AWS bills by <strong>XX%</strong> without sacrificing performance.
-    <br>- Conducted regular security audits and compliance checks, identifying and remediating <strong>XX</strong> critical vulnerabilities.
-</p>
-<p>
-  <b><em>What I remember most:</em></b><br>
-  - As in any fast-paced startup environment, I learned to balance peed and reliability under tight delivery cycles.<br>
-<i>- One particular incident that stands out:</i>
-During peak hours, we experienced a severe performance degradation - the website became extremely slow despite scaling up and out our infrastructure. 
-Upon reviewing metrics, I noticed that although our AWS OpenSearch cluster had many nodes, only one node showed abnormally high CPU utilization. 
-Further analysis revealed that the cluster’s largest index had just one shard per node, causing uneven load distribution and high query latency. 
-I reconfigured the index to use multiple shards and replicas, which evenly distributed traffic across nodes and restored normal performance within minutes. 
-This incident reinforced the importance of understanding underlying architecture and staying calm and analytical during high-pressure situations.
+<section>
+  <h2><i>What I did:</i></h2>
+  <ul>
+    <li>As the sole DevOps engineer, designed, built, and scaled a <b>3-tier web application on AWS</b>, supporting a <strong>60%</strong> growth in user base.</li>
+    <li>Implemented and managed CI/CD pipelines using AWS CodePipeline, automating deployments and reducing release cycles by <strong>60%</strong>.</li>
+    <li>Owned production incidents and monitoring, improving system reliability.</li>
+    <li>Performed cost optimization initiatives that reduced monthly AWS bills by <strong>15%</strong> without sacrificing performance.</li>
+    <li>Conducted regular security audits and compliance checks, identifying and remediating critical vulnerabilities.</li>
+  </ul>
+  <p><u>Tech stack:</u> Fully on AWS - CodeCommit, CodeBuild, CodePipeline, RDS, CloudFront, S3, CloudWatch, OpenSearch, Elastic Beanstalk, AWS Config, AWS Security Hub CSPM, etc.</p>
 
-</p>
+</section>
+
+<section>
+  <h2><i>What I remember most:</i></h2>
+  <ul>
+    <li>In a fast-paced startup environment, learned to balance speed and reliability under tight delivery cycles.</li>
+  </ul>
+</section>
 
 </body>
 </html>
