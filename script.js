@@ -33,6 +33,7 @@ function createPageButton(pageNum) {
 
 // Load page content
 function loadPage(pageNum) {
+  window.scrollTo(0, 0);
   if (pageCache[pageNum]) {
     contentContainer.innerHTML = pageCache[pageNum];
     highlightButton(pageNum);
