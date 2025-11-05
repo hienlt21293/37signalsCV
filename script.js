@@ -58,7 +58,8 @@ function loadPage(pageNum) {
 // Highlight current page button
 function highlightButton(pageNum) {
   document.querySelectorAll('.page-btn').forEach(btn => {
-    btn.style.backgroundColor = (btn.dataset.page == pageNum) ? 'rgba(1, 0, 0, 0.7)' : 'transparent';
+    btn.style.backgroundColor = (btn.dataset.page == pageNum) ? 'white' : 'transparent';
+    btn.style.color = (btn.dataset.page == pageNum) ? 'black' : 'white';
   });
 }
 
