@@ -44,6 +44,31 @@
   <div class="spacer"></div> 
   <!-- Content will be loaded here -->
   <div class="content" id="contentContainer">Loading...</div>
+
+  <!-- AI Chat Widget -->
+  <div class="chat-widget-container">
+    <button id="chatToggleBtn" class="chat-toggle-btn" aria-label="Open Chat">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3C14.7521 3.00344 16.9113 3.89927 18.5036 5.49141C20.0959 7.08356 20.9917 9.24278 21 11.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div id="chatModal" class="chat-modal hidden">
+      <div class="chat-header">
+        <h3>Ask AI about Hien Le</h3>
+        <button id="chatCloseBtn" class="chat-close-btn">&times;</button>
+      </div>
+      <div id="chatHistory" class="chat-history">
+        <div class="chat-message bot-message">
+          Hi! I am an AI assistant representing Hien Le. Paste a Job Description or ask me if he's a good fit for your role!
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <textarea id="chatInput" placeholder="Paste JD or ask a question..."></textarea>
+        <button id="chatSendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

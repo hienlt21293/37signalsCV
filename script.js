@@ -192,3 +192,95 @@ function updateMenuSelection(menuItems = Array.from(popupMenu.querySelectorAll('
     menuItems[currentIndex].scrollIntoView({ block: 'nearest' });
   }
 }
+
+// --- AI Chat Logic ---
+const chatToggleBtn = document.getElementById('chatToggleBtn');
+const chatModal = document.getElementById('chatModal');
+const chatCloseBtn = document.getElementById('chatCloseBtn');
+const chatInput = document.getElementById('chatInput');
+const chatSendBtn = document.getElementById('chatSendBtn');
+const chatHistory = document.getElementById('chatHistory');
+
+chatToggleBtn.addEventListener('click', () => {
+  chatModal.classList.toggle('hidden');
+});
+
+chatCloseBtn.addEventListener('click', () => {
+  chatModal.classList.add('hidden');
+});
+
+const SYSTEM_PROMPT = `You are an AI assistant. Your goal is to answer questions from recruiters and evaluate if Hien is a good fit for their Job Description (JD). If the user paste a JD, you should evaluate if Hien is a good fit for the JD, and always provide a rating on the scale of 1 to 10.
+STRICT LIMITATION: You are forbidden from discussing any topics outside of Hien’s professional background, career, and Job Description evaluations. If a user asks about celebrities, general knowledge, or anything unrelated to Hien's career, you must respond exactly with: 'I am specialized in evaluating Hien's career fit and cannot answer unrelated questions.'
+Here is Hien's summary:
+- 9+ years of Cloud/DevOps experience. Based in Vietnam (UTC+7).
+- Certifications: Microsoft Certified DevOps Engineer Expert, AWS DevOps Engineer Professional, CKA.
+- Skills: AWS, Azure, Jenkins, GitHub Actions, Terraform, Kubernetes, ECS, Python, Bash.
+- Hien's detailed working experience is included in pageN.html pages/files.
+- Be professional, concise, and persuasive. If a JD is provided, map Hien's skills to the JD requirements and ALWAYS provide an overall rating (scale of 1 to 10). Highlight strong alignments and honestly address minor gaps (e.g., if they ask for 10 years experience, note Hien has 7 in DevOps but makes up for it with Expert certifications and Lead roles).`;
+
+// API KEY only usable in this site.
+const GEMINI_API_KEY = "API KEY"; // 
+
+async function sendChatMessage() {
+  const userText = chatInput.value.trim();
+  if (!userText) return;
+
+  // Append user message
+  const userMsgDiv = document.createElement('div');
+  userMsgDiv.className = 'chat-message user-message';
+  userMsgDiv.textContent = userText;
+  chatHistory.appendChild(userMsgDiv);
+  chatInput.value = '';
+  chatHistory.scrollTop = chatHistory.scrollHeight;
+
+  // Append thinking message
+  const botMsgDiv = document.createElement('div');
+  botMsgDiv.className = 'chat-message bot-message';
+  botMsgDiv.textContent = 'Thinking...';
+  chatHistory.appendChild(botMsgDiv);
+  chatHistory.scrollTop = chatHistory.scrollHeight;
+
+  if (GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE") {
+    botMsgDiv.textContent = "Error: Please set your Gemini API key in script.js!";
+    return;
+  }
+
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        system_instruction: {
+          parts: { text: SYSTEM_PROMPT }
+        },
+        contents: [
+          {
+            parts: [{ text: userText }]
+          }
+        ]
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    const reply = data.candidates[0].content.parts[0].text;
+    botMsgDiv.textContent = reply;
+  } catch (error) {
+    console.error('Error calling Gemini API:', error);
+    botMsgDiv.textContent = "Sorry, I couldn't reach the AI at the moment. Please check the API key.";
+  }
+  chatHistory.scrollTop = chatHistory.scrollHeight;
+}
+
+chatSendBtn.addEventListener('click', sendChatMessage);
+chatInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendChatMessage();
+  }
+});
