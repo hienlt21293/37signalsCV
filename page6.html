@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<title>Aarista - DevOps Engineer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Aarista - DevOps Engineer</title>
 </head>
 
 <body>
 
-<section class="role-header">
-  <img src="aarista.png" alt="Aarista Logo" class="icon">
-  <div class="role-text">
-    <div class="role-title">DevOps Engineer</div>
-    <div class="role-info">
-      <a href="https://aarista.com/" target="_blank" rel="noopener noreferrer">Aarista</a> | Sep 2024 – ongoing
+  <section class="role-header">
+    <img src="aarista.png" alt="Aarista Logo" class="icon">
+    <div class="role-text">
+      <div class="role-title">DevOps Engineer</div>
+      <div class="role-info">
+        <a href="https://aarista.com/" target="_blank" rel="noopener noreferrer">Aarista</a> | Sep 2024 – Present
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h2><i>About the company:</i></h2>
-  <p>
-    Aarista is a U.S.-based healthcare technology company providing cloud-based software and analytics solutions that help healthcare providers and patients improve treatment outcomes and operational efficiency.
-  </p>
-</section>
+  <section>
+    <h2><i>About the company:</i></h2>
+    <p>
+      Aarista is a U.S.-based healthcare technology company providing cloud-based software and analytics solutions that
+      help healthcare providers and patients improve treatment outcomes and operational efficiency.
+    </p>
+  </section>
 
-<section>
-  <h2><i>What I did:</i></h2>
-  <img src="DHP.webp" alt="DHP Architecture" class="responsive">
-  <ul>
-    <li>Set up and managed infrastructure and CI/CD pipelines on Azure, ensuring <strong>compliance with HIPAA</strong> data privacy regulations.</li>
-    <li>Proactively identified and resolved an average of <strong>3</strong> performance bottlenecks per 
-     month in collaboration with the development team.</li>
-  </ul>
-  <p><u>Tech stack:</u> Azure DevOps pipelines (YAML + Classic), Azure App Service (ASP.NET & .NET Core), Application Insights, MongoDB Atlas, Container App, FrontDoor, Key Vault, Application Gateway, Azure SQL Database, Azure Cache for Redis, etc.</p>
-</section>
+  <section>
+    <h2><i>What I did:</i></h2>
+    <img src="DHP.webp" alt="DHP Architecture" class="responsive">
+    <ul>
+      <li><b>Azure platform architecture:</b> Designed and owned the end-to-end architecture - selecting and integrating
+        services (Container App, FrontDoor, Application Gateway, App Service, Key
+        Vault, Azure SQL, Redis) to meet performance, scalability, and <strong>HIPAA</strong> compliance requirements.
+      </li>
+      <li>Designed and maintained CI/CD pipelines on Azure DevOps (YAML + Classic) with secrets management via Key
+        Vault and enforced security gates at every stage of the delivery workflow.</li>
+      <li>Embedded security and compliance from the design stage: implemented network isolation, private endpoints,
+        managed identity, and RBAC to satisfy healthcare data privacy regulations.</li>
+      <li>Proactively identified and resolved an average of <strong>3</strong> performance bottlenecks per month in
+        collaboration with the development team, using Application Insights for root cause analysis.</li>
+    </ul>
+    <p><u>Tech stack:</u> Azure DevOps pipelines (YAML + Classic), Azure App Service (ASP.NET &amp; .NET Core),
+      Application Insights, MongoDB Atlas, Container App, FrontDoor, Key Vault, Application Gateway, Azure SQL Database,
+      Azure Cache for Redis, etc.</p>
+  </section>
 
-<section>
-  <h2><i>What I remember most:</i></h2>
-  <p>
-    October 29, 2025 – Azure FrontDoor global outage. The service was completely down and our web app became inaccessible.  
-    I applied a temporary workaround by <a href="https://learn.microsoft.com/en-us/azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery#approach" target="_blank" rel="noopener noreferrer">adding Azure Traffic Manager in front of FrontDoor</a> (normally, Microsoft recommends using either FrontDoor or Traffic Manager, not both).  
-    Our service availability was restored within 30 minutes, minimizing user impact.  
-    I remember this most because it was an "all the dots connected" moment - my prior study of the architecture pattern paid off under real-world pressure.
-  </p>
-</section>
+  <section>
+    <h2><i>What I remember most:</i></h2>
+    <p>
+      October 29, 2025 – Azure FrontDoor global outage. The service was completely down and our web app became
+      inaccessible.
+      I applied a temporary workaround by <a
+        href="https://learn.microsoft.com/en-us/azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery#approach"
+        target="_blank" rel="noopener noreferrer">adding Azure Traffic Manager in front of FrontDoor</a> (normally,
+      Microsoft recommends using either FrontDoor or Traffic Manager, not both).
+      Our service availability was restored within 30 minutes, minimizing user impact.
+      I remember this most because it was an "all the dots connected" moment - my prior study of the architecture
+      pattern paid off under real-world pressure.
+    </p>
+  </section>
 
 </body>
+
 </html>

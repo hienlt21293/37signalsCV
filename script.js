@@ -106,9 +106,19 @@ homeBtn.addEventListener('click', () => {
   }
 });
 
-// Toggle menu with `~` key
+// Toggle menu with `~` key; Escape closes it
 document.addEventListener('keydown', (event) => {
-  if (event.key === '`' || event.key === '~'  || event.key === '.') {
+  const isTyping = document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA');
+  if (isTyping) return;
+
+  if (event.key === 'Escape') {
+    popupMenu.classList.add('hidden');
+    currentIndex = -1;
+    updateMenuSelection();
+    return;
+  }
+
+  if (event.key === '`' || event.key === '~' || event.key === '.') {
     popupMenu.classList.toggle('hidden');
     if (!popupMenu.classList.contains('hidden')) {
       currentIndex = -1;
@@ -134,6 +144,8 @@ document.addEventListener('click', (event) => {
 
 // Keyboard: number keys to switch pages
 document.addEventListener('keydown', (event) => {
+  const isTyping = document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA');
+  if (isTyping) return;
   const key = event.key;
   if (popupMenu.classList.contains('hidden')) {
     if (key === '0' || key === 'w') {
@@ -155,9 +167,9 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowDown') {
     event.preventDefault();
     if (currentIndex === menuItems.length - 1) {
-        currentIndex = 0;
+      currentIndex = 0;
     } else {
-        currentIndex++;
+      currentIndex++;
     }
     updateMenuSelection(menuItems);
   }
@@ -165,9 +177,9 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowUp') {
     event.preventDefault();
     if (currentIndex <= 0) {
-        currentIndex = menuItems.length - 1;
+      currentIndex = menuItems.length - 1;
     } else {
-        currentIndex--;
+      currentIndex--;
     }
     updateMenuSelection(menuItems);
   }
@@ -212,14 +224,16 @@ chatCloseBtn.addEventListener('click', () => {
 const SYSTEM_PROMPT = `You are an AI assistant. Your goal is to answer questions from recruiters and evaluate if Hien is a good fit for their Job Description (JD). If the user paste a JD, you should evaluate if Hien is a good fit for the JD, and always provide a rating on the scale of 1 to 10.
 STRICT LIMITATION: You are forbidden from discussing any topics outside of Hien’s professional background, career, and Job Description evaluations. If a user asks about celebrities, general knowledge, or anything unrelated to Hien's career, you must respond exactly with: 'I am specialized in evaluating Hien's career fit and cannot answer unrelated questions.'
 Here is Hien's summary:
-- 9+ years of Cloud/DevOps experience. Based in Vietnam (UTC+7).
+- 9+ years of Cloud/DevOps experience. 
+- Total experience working with Azure: 3.5 years (with 2 years as a DevOps Engineer at KMS, and 1.5 years as a DevOps Engineer at Aarista).
 - Certifications: Microsoft Certified DevOps Engineer Expert, AWS DevOps Engineer Professional, CKA.
 - Skills: AWS, Azure, Jenkins, GitHub Actions, Terraform, Kubernetes, ECS, Python, Bash.
-- Hien's detailed working experience is included in pageN.html pages/files.
-- Be professional, concise, and persuasive. If a JD is provided, map Hien's skills to the JD requirements and ALWAYS provide an overall rating (scale of 1 to 10). Highlight strong alignments and honestly address minor gaps (e.g., if they ask for 10 years experience, note Hien has 7 in DevOps but makes up for it with Expert certifications and Lead roles).`;
+- ALWAYS use the pageN.html pages/files as reference to provide details about Hien's experience.
+- Be professional, concise, and persuasive. If a JD is provided, map Hien's skills to the JD requirements and ALWAYS provide an overall rating (scale of 1 to 10). ALWAYS state if the role is a reach, stretch, or good fit. 
+- Always highlight strong alignments and honestly address minor gaps (e.g., if they ask for 10 years experience, note Hien has 7 in DevOps but makes up for it with Expert certifications and Lead roles).`;
 
 // API KEY only usable in this site.
-const GEMINI_API_KEY = "API KEY"; // 
+const GEMINI_API_KEY = "AIzaSyCCy16tCB2mZdC2p-KjrIVoe9qML8KXZAs"; // 
 
 async function sendChatMessage() {
   const userText = chatInput.value.trim();

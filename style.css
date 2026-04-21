@@ -4,7 +4,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.1); /* Adjust opacity here */
+  background: rgba(0, 0, 0, 0.1);
+  /* Adjust opacity here */
   z-index: 0;
 }
 
@@ -28,7 +29,8 @@
   font-style: normal;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: 'albert';
   background: url('background.webp') no-repeat center center/cover;
@@ -42,10 +44,13 @@ body::before {
   top: 40px;
   left: 0;
   width: 100%;
-  height: 50px; /* Adjust the height of the fade effect */
+  height: 50px;
+  /* Adjust the height of the fade effect */
   background: linear-gradient(to bottom, rgba(240, 229, 229, 1) 25%, rgba(240, 229, 229, 0) 100%);
-  z-index: 2; /* Make sure it's above the content but below the nav */
-  pointer-events: none; /* Allow clicks to go through */
+  z-index: 2;
+  /* Make sure it's above the content but below the nav */
+  pointer-events: none;
+  /* Allow clicks to go through */
 }
 
 /* VERY HIGH z-index and fixed positioning for nav and popup to always be on top */
@@ -57,7 +62,8 @@ body::before {
   display: flex;
   align-items: center;
   gap: 10px;
-  z-index: 9999; /* Make sure it's very high */
+  z-index: 9999;
+  /* Make sure it's very high */
   background-color: #1F1F28;
   padding: 10px 20px;
   border-radius: 0;
@@ -88,7 +94,7 @@ body::before {
   width: 220px;
   border-radius: 6px;
   z-index: 999;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   transition: opacity 0.2s ease;
 }
 
@@ -97,7 +103,7 @@ body::before {
   list-style: none;
 }
 
-.popup li {
+/* .popup li {
   padding: 8px 0;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   cursor: pointer;
@@ -106,7 +112,7 @@ body::before {
 .popup li a {
   text-decoration: none;
   color: inherit;
-}
+} */
 
 .hidden {
   display: none;
@@ -116,13 +122,16 @@ body::before {
 .content {
   padding: 60px 20px 20px;
   max-width: 900px;
-  margin-left: 10px; /* so content doesn't cover left nav */
+  margin-left: 10px;
+  /* so content doesn't cover left nav */
   position: relative;
-  z-index: 1; /* BELOW nav and popup */
-  pointer-events: auto; /* allow interactions inside content */
+  z-index: 1;
+  /* BELOW nav and popup */
+  pointer-events: auto;
+  /* allow interactions inside content */
 }
 
-.content > * {
+.content>* {
   padding: 10px;
   /* background-color: rgba(149, 24, 24, 0.6); */
   border-radius: 8px;
@@ -145,11 +154,12 @@ body::before {
   fill: white;
 }
 
+/* 
 .popup li.selected {
-  background-color:#4E4948;
+  background-color: #4E4948;
   border-radius: 4px;
   color: gold;
-}
+} */
 
 .spacer {
   height: 15px;
@@ -188,16 +198,21 @@ p {
   margin: 0.4em 0 0.8em 0;
 }
 
-i, em {
+i,
+em {
   font-style: italic;
   font-weight: 600;
 }
 
-b, strong {
+b,
+strong {
   font-weight: 800;
 }
 
-b em, em b, strong em, em strong {
+b em,
+em b,
+strong em,
+em strong {
   font-style: italic;
   font-weight: 800;
 }
@@ -226,15 +241,18 @@ img.icon {
 }
 
 img.responsive {
-    width: 100%;
-    height: auto;
-    max-width: 900px; /* Optional: limits how large it can get */
-  }
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+  /* Optional: limits how large it can get */
+}
 
 ul {
-  list-style-type: "- "; /* mimics your dash */
+  list-style-type: "- ";
+  /* mimics your dash */
   padding-left: 1em;
 }
+
 li {
   margin-bottom: 0.5em;
 }
@@ -260,7 +278,7 @@ li {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s, background 0.2s;
 }
 
@@ -281,7 +299,7 @@ li {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   transition: opacity 0.3s, transform 0.3s;
   color: #e0e0e0;
@@ -394,4 +412,3 @@ li {
 .chat-input-area button:hover {
   background: #5a5a8a;
 }
-
