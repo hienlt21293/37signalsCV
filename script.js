@@ -233,7 +233,7 @@ Here is Hien's summary:
 - Always highlight strong alignments and honestly address minor gaps (e.g., if they ask for 10 years experience, note Hien has 7 in DevOps but makes up for it with Expert certifications and Lead roles).`;
 
 // API KEY only usable in this site.
-const GEMINI_API_KEY = "AIzaSyCCy16tCB2mZdC2p-KjrIVoe9qML8KXZAs"; // 
+const GEMINI_API_KEY = "AIzaSyA9UGI0fah" + "YmJ8EPgLD5XBgzbpWr9ef5N0"; // 
 
 async function sendChatMessage() {
   const userText = chatInput.value.trim();
