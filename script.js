@@ -221,14 +221,11 @@ chatCloseBtn.addEventListener('click', () => {
   chatModal.classList.add('hidden');
 });
 
-const SYSTEM_PROMPT = `You are an AI assistant. Your goal is to answer questions from recruiters and evaluate if Hien is a good fit for their Job Description (JD). If the user paste a JD, you should evaluate if Hien is a good fit for the JD, and always provide a rating on the scale of 1 to 10.
-STRICT LIMITATION: You are forbidden from discussing any topics outside of Hien’s professional background, career, and Job Description evaluations. If a user asks about celebrities, general knowledge, or anything unrelated to Hien's career, you must respond exactly with: 'I am specialized in evaluating Hien's career fit and cannot answer unrelated questions.'
-Here is Hien's summary:
-- 9+ years of Cloud/DevOps experience. 
-- Total experience working with Azure: 3.5 years (with 2 years as a DevOps Engineer at KMS, and 1.5 years as a DevOps Engineer at Aarista).
-- Certifications: Microsoft Certified DevOps Engineer Expert, AWS DevOps Engineer Professional, CKA.
-- Skills: AWS, Azure, Jenkins, GitHub Actions, Terraform, Kubernetes, ECS, Python, Bash.
-- ALWAYS use the pageN.html pages/files as reference to provide details about Hien's experience.
+const SYSTEM_PROMPT = `You are an AI assistant. Your main role is to answer questions from recruiters and evaluate if Hien is a good fit for their Job Description (JD). If the user paste a JD, you should evaluate if Hien is a good fit for the JD.
+RULE: 
+- Always put the final rating (scale of 1 to 10) and overall verdict (e.g., "Good fit", "Stretch", "Reach", "Not a fit") at top of the response, then follow with explanation.
+- DO NOT use markdown format AT ALL. Use plain text and bullet points only.
+- ALWAYS use the page1.html, page2.html, page3.html, page4.html,  page5.html,  page6.html, and page7.html files/pages as reference to provide details about Hien's experience and/or evaluate Hien's suitability for the JD.
 - Be professional, concise, and persuasive. If a JD is provided, map Hien's skills to the JD requirements and ALWAYS provide an overall rating (scale of 1 to 10). ALWAYS state if the role is a reach, stretch, or good fit. 
 - Always highlight strong alignments and honestly address minor gaps (e.g., if they ask for 10 years experience, note Hien has 7 in DevOps but makes up for it with Expert certifications and Lead roles).`;
 
@@ -259,34 +256,48 @@ async function sendChatMessage() {
     return;
   }
 
-  try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        system_instruction: {
-          parts: { text: SYSTEM_PROMPT }
+  const maxRetries = 3;
+  let retryCount = 0;
+  let success = false;
+
+  while (retryCount < maxRetries && !success) {
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         },
-        contents: [
-          {
-            parts: [{ text: userText }]
-          }
-        ]
-      })
-    });
+        body: JSON.stringify({
+          system_instruction: {
+            parts: { text: SYSTEM_PROMPT }
+          },
+          contents: [
+            {
+              parts: [{ text: userText }]
+            }
+          ]
+        })
+      });
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const reply = data.candidates[0].content.parts[0].text;
+      botMsgDiv.textContent = reply;
+      success = true;
+    } catch (error) {
+      retryCount++;
+      console.warn(`Attempt ${retryCount} failed:`, error);
+      if (retryCount < maxRetries) {
+        botMsgDiv.textContent = `Thinking (Retrying ${retryCount}/${maxRetries-1})...`;
+        await new Promise(resolve => setTimeout(resolve, 1000 * retryCount)); // Exponential backoff
+      } else {
+        console.error('All retry attempts failed:', error);
+        botMsgDiv.textContent = "Sorry, I'm having trouble reaching the AI right now. Please try again in a moment.";
+      }
     }
-
-    const data = await response.json();
-    const reply = data.candidates[0].content.parts[0].text;
-    botMsgDiv.textContent = reply;
-  } catch (error) {
-    console.error('Error calling Gemini API:', error);
-    botMsgDiv.textContent = "Sorry, I couldn't reach the AI at the moment. Please check the API key.";
   }
   chatHistory.scrollTop = chatHistory.scrollHeight;
 }

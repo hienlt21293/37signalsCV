@@ -58,20 +58,31 @@
     </button>
     <div id="chatModal" class="chat-modal hidden">
       <div class="chat-header">
-        <h3>Ask AI about Hien Le</h3>
+        <div class="header-info">
+          <span class="status-dot"></span>
+          <h3>Chat with AI</h3>
+        </div>
         <button id="chatCloseBtn" class="chat-close-btn">&times;</button>
       </div>
+
       <div id="chatHistory" class="chat-history">
-        <div class="chat-message bot-message">
-          Hi! I am an AI assistant representing Hien Le. Paste a Job Description or ask me if he's a good fit for your
-          role!
+        <div class="chat-message bot-message welcome-box">
+          <div class="welcome-text">Hi! 👋 Let me help you analyze Hien's background or check for a job fit.
+            <br>You can ask me any questions or simply paste your JD here.
+          </div>
         </div>
       </div>
+
       <div class="chat-input-area">
-        <textarea id="chatInput" placeholder="Paste JD or ask a question..."></textarea>
-        <button id="chatSendBtn">Send</button>
+        <textarea id="chatInput" rows="1" placeholder="Ask questions or Paste your JD"></textarea>
+        <button id="chatSendBtn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+          </svg>
+        </button>
       </div>
     </div>
+  </div>
   </div>
 
   <script src="script.js"></script>
