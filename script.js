@@ -212,6 +212,16 @@ const chatCloseBtn = document.getElementById('chatCloseBtn');
 const chatInput = document.getElementById('chatInput');
 const chatSendBtn = document.getElementById('chatSendBtn');
 const chatHistory = document.getElementById('chatHistory');
+let candidateInfo = "";
+
+// Fetch summarized candidate info for the chatbot
+fetch('candidate_info.txt')
+  .then(response => response.text())
+  .then(text => {
+    candidateInfo = text;
+  })
+  .catch(err => console.error("Failed to load candidate_info.txt", err));
+
 
 chatToggleBtn.addEventListener('click', () => {
   chatModal.classList.toggle('hidden');
@@ -221,13 +231,19 @@ chatCloseBtn.addEventListener('click', () => {
   chatModal.classList.add('hidden');
 });
 
-const SYSTEM_PROMPT = `You are an AI assistant. Your main role is to answer questions from recruiters and evaluate if Hien is a good fit for their Job Description (JD). If the user paste a JD, you should evaluate if Hien is a good fit for the JD.
+const SYSTEM_PROMPT = `You are an AI assistant. Your main role is to answer questions from recruiters and evaluate if Hien is a good fit for their Job Description (JD).
 RULE: 
-- Always put the final rating (scale of 1 to 10) and overall verdict (e.g., "Good fit", "Stretch", "Reach", "Not a fit") at top of the response, then follow with explanation.
+- If the user asks a simple factual question about Hien (e.g., "How many years of experience?", "What certifications?"), provide a direct and concise answer in 1-2 sentences.
+- ONLY if the user pastes a JD or asks for an evaluation, follow this format:
+    - Final Rating (scale 1-10) and Overall Verdict (e.g., "Good fit", "Stretch", "Reach") at the very top.
+    - Followed by a concise explanation mapping Hien's skills to the JD.
 - DO NOT use markdown format AT ALL. Use plain text and bullet points only.
-- ALWAYS use the page1.html, page2.html, page3.html, page4.html,  page5.html,  page6.html, and page7.html files/pages as reference to provide details about Hien's experience and/or evaluate Hien's suitability for the JD.
-- Be professional, concise, and persuasive. If a JD is provided, map Hien's skills to the JD requirements and ALWAYS provide an overall rating (scale of 1 to 10). ALWAYS state if the role is a reach, stretch, or good fit. 
-- Always highlight strong alignments and honestly address minor gaps (e.g., if they ask for 10 years experience, note Hien has 7 in DevOps but makes up for it with Expert certifications and Lead roles).`;
+- ALWAYS use the provided CANDIDATE INFORMATION (derived from candidate_info.txt) as the primary reference.
+- You can refer to page1.html through page7.html for additional context if needed.
+- Be professional, concise, and persuasive. 
+- Highlight strong alignments and honestly address minor gaps (e.g., noting Hien has over 9 years total experience and 3.5+ years specifically in Azure).`;
+
+
 
 // API KEY only usable in this site.
 const GEMINI_API_KEY = "AIzaSyA9UGI0fah" + "YmJ8EPgLD5XBgzbpWr9ef5N0"; // 
@@ -262,15 +278,16 @@ async function sendChatMessage() {
 
   while (retryCount < maxRetries && !success) {
     try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${GEMINI_API_KEY}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           system_instruction: {
-            parts: { text: SYSTEM_PROMPT }
+            parts: { text: SYSTEM_PROMPT + "\n\nCANDIDATE INFORMATION:\n" + candidateInfo }
           },
+
           contents: [
             {
               parts: [{ text: userText }]

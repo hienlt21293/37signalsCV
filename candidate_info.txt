@@ -1,0 +1,96 @@
+# Full Candidate Profile: Hien Le
+
+## Executive Summary
+Hien Le is a highly skilled Cloud & DevOps Engineer with over 9 years of professional experience, including more than 3.5 years of deep specialization in Microsoft Azure and extensive experience across the AWS ecosystem. He specializes in architecting, building, and scaling mission-critical cloud infrastructure for diverse sectors including Healthcare (HIPAA compliant), Fintech, Automotive, and Media. Hien has a proven track record of leading engineering teams, managing thousands of cloud resources, and delivering significant business value through automation, cost optimization, and robust security architectures.
+
+---
+
+## Technical Skills Matrix
+
+### Cloud Platforms & Architecture
+- **Microsoft Azure:** 3.5+ years experience. Expert in AKS, App Service, Container Apps, FrontDoor, Application Gateway, Azure SQL, Redis, Key Vault, Application Insights, and Azure Monitor.
+- **AWS:** Expert in Redshift, RDS, ECS Fargate, Lambda, S3, CloudFront, API Gateway, ElastiCache, Amazon MQ, AWS Config, and Security Hub.
+- **Other Platforms:** Google Cloud Platform (GCP), Vapor, Vercel, MongoDB Atlas.
+- **Architecture Patterns:** Microservices, 3-Tier Web Apps, Data Warehousing, Monorepos, Zero Trust Security, Hybrid Cloud, and High Availability/Disaster Recovery (HA/DR).
+
+### Infrastructure as Code (IaC) & Automation
+- **Tools:** Terraform (Expert), Terragrunt, Ansible, AWS CloudFormation, Azure Bicep, Kustomize.
+- **CI/CD:** Azure DevOps (YAML & Classic), GitHub Actions (Matrix Strategy, Change Detection), Jenkins (Shared Libraries, Groovy), AWS CodePipeline, ArgoCD.
+- **Standards:** Established enterprise-wide IaC patterns, GDPR-compliant automation, and reusable pipeline templates.
+
+### Observability & Reliability
+- **Stack:** Prometheus, Grafana, Loki, Tempo, OpenTelemetry (OTEL) Collector.
+- **Metrics & Logging:** CloudWatch, Azure Monitor, Application Insights, ELK/OpenSearch.
+- **Operations:** SLI/SLO definition, Root Cause Analysis (RCA) leadership, Incident Management, and Authoring Operational Runbooks.
+
+### Security, Compliance & Identity
+- **Frameworks:** HIPAA (Healthcare), GDPR, ISO 27001 / SOC2 readiness.
+- **Identity & Access:** KeyCloak (SSO, OAuth 2.0, OIDC), Google Auth Platform, Azure Managed Identity, RBAC, IAM (Least Privilege).
+- **Secrets & Security:** HashiCorp Vault, Azure Key Vault, AWS Secrets Manager, AWS Security Hub CSPM, Network Isolation (Private Endpoints, VPC Peering).
+
+### Containers & Systems
+- **Orchestration:** Kubernetes (on-prem, AKS, EKS), Docker, ECS Fargate.
+- **Scripting:** Python, Bash, PowerShell, Groovy.
+- **Operating Systems:** Linux (Ubuntu, CentOS), Windows Server (IIS).
+
+---
+
+## Certifications
+- **AWS Certified DevOps Engineer – Professional**
+- **AWS Certified Solutions Architect – Associate**
+- **Microsoft Certified: DevOps Engineer Expert**
+- **Microsoft Certified: Azure Administrator Associate**
+- **Certified Kubernetes Administrator (CKA)**
+
+---
+
+## Detailed Professional Experience
+
+### Aarista | DevOps Engineer (Sep 2024 – Present)
+*U.S.-based healthcare technology company specializing in cloud software and analytics.*
+- **Azure Platform Ownership:** Designed and owned end-to-end architecture using Container Apps, FrontDoor, Application Gateway, App Service, and Azure SQL.
+- **Compliance & Security:** Engineered infrastructure to meet strict **HIPAA** requirements, implementing private endpoints, network isolation, and managed identities.
+- **CI/CD Excellence:** Maintained pipelines on Azure DevOps (YAML + Classic) with integrated secrets management via Key Vault and enforced security gates.
+- **Operational Resilience:** Successfully mitigated a global Azure FrontDoor outage by implementing a Traffic Manager workaround within 30 minutes, ensuring service continuity.
+- **Performance Tuning:** Proactively resolved ~3 performance bottlenecks per month using Application Insights for root cause analysis.
+
+### Cinch | Systems Engineer (Freelancer) (May 2025 – Present)
+*Asia’s leading Device-as-a-Service (DaaS) platform.*
+- **Sole DevOps Leadership:** Responsible for the entire infrastructure lifecycle, supporting 20+ microservices on AWS.
+- **Infrastructure from Scratch:** Architected and built the AWS environment using Terraform and Terragrunt with a modular, environment-specific structure.
+- **Monorepo & CI Optimization:** Enabled monorepo strategy and implemented GitHub Actions matrix strategies with change detection, reducing deployment time by 30% and lowering CI costs.
+- **Advanced Observability:** Deployed a full LGTM stack (Loki, Grafana, Tempo, Prometheus) with OpenTelemetry for deep trace/log correlation and Slack-integrated alerting.
+- **Scaling ECS:** Standardized ECS Fargate services with circuit breakers, auto-rollback, and metrics-driven autoscaling.
+- **Zero Trust Architecture:** Applied end-to-end isolation in private subnets, hardened ingress/egress, and enforced MFA/Least Privilege for ISO 27001/SOC2 readiness.
+
+### EPAM Anywhere | Platform Engineer Lead (May 2022 – Dec 2024)
+*Fortune 1000 Software Engineering and IT Services firm.*
+- **AWS Data Warehouse Lead:** Managed a multi-account AWS Data Warehouse (Syngenta) supporting global analytics teams.
+- **Massive Migration:** Led the migration of 2000+ resources (Redshift, RDS, Glue, EC2) across AWS accounts with 100% data integrity.
+- **Automation Impact:** Reduced manual effort by 70% through Terraform and CloudFormation automation while ensuring GDPR compliance.
+- **Reliability Engineering:** Improved system availability to **99.95%**; designed DR plans that improved RTO/RPO by 90%.
+- **Team Enablement:** Authored runbooks for L1.5 support teams, reducing incident response time by 70%.
+
+### OKXE | Senior DevOps Engineer (Jul 2021 – May 2022)
+*Online marketplace startup for motorbikes in Vietnam.*
+- **Scaling Startups:** Scaled a 3-tier AWS web application to support a 60% growth in the user base as the sole DevOps engineer.
+- **Deployment Efficiency:** Reduced release cycles by 60% using AWS CodePipeline automation.
+- **Compliance Monitoring:** Enforced security posture using AWS Config and AWS Security Hub CSPM for continuous audit and remediation.
+- **FinOps:** Executed cost optimization initiatives that reduced monthly AWS bills by 15%.
+
+### NTT Data VDS | Offshore CI/CD Team Lead (Jan 2021 – Jul 2021)
+*Subsidiary of a top 10 global IT services provider.*
+- **Leadership:** Led an offshore team of 5 engineers for **Sky Deutschland**, managing PI planning and cross-continental coordination.
+- **Standardization:** Defined engineering standards via Jenkins shared libraries and quality gates adopted across all teams.
+- **Security Integration:** Integrated HashiCorp Vault for dynamic secrets injection and SonarQube for code quality in Kubernetes/GCP pipelines.
+
+### KMS Technology | DevOps Engineer (Feb 2019 – Jan 2021)
+*Global IT outsourcing firm.*
+- **Cloud Migration:** Architected and executed the migration of a legacy on-prem application to Azure (App Service, SQL Database) for **4tell Solutions**, reducing operational costs by 25%.
+- **Identity Management:** Deployed and managed KeyCloak as the identity provider (SSO, OAuth 2.0, OIDC).
+- **Automation:** Increased deployment frequency by 40% using Jenkins and saved 10 hours/week via PowerShell automation.
+
+### HELLA Vietnam | Assistant Embedded Software Engineer (Oct 2016 – Oct 2018)
+*Top 50 global automotive supplier.*
+- **Embedded Systems:** Developed C/C++ software for automotive ECUs (Light control and keyless entry).
+- **Early DevOps:** Set up the initial CI/CD pipelines and automated testing processes for the engineering team.
