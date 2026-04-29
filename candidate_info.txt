@@ -8,7 +8,7 @@ Hien Le is a highly skilled Cloud & DevOps Engineer with over 9 years of profess
 ## Technical Skills Matrix
 
 ### Cloud Platforms & Architecture
-- **Microsoft Azure:** 3.5+ years experience. Expert in AKS, App Service, Container Apps, FrontDoor, Application Gateway, Azure SQL, Redis, Key Vault, Application Insights, and Azure Monitor.
+- **Microsoft Azure:** 5 years experience. Expert in AKS, App Service, Container Apps, FrontDoor, Application Gateway, Azure SQL, Redis, Key Vault, Application Insights, and Azure Monitor.
 - **AWS:** Expert in Redshift, RDS, ECS Fargate, Lambda, S3, CloudFront, API Gateway, ElastiCache, Amazon MQ, AWS Config, and Security Hub.
 - **Other Platforms:** Google Cloud Platform (GCP), Vapor, Vercel, MongoDB Atlas.
 - **Architecture Patterns:** Microservices, 3-Tier Web Apps, Data Warehousing, Monorepos, Zero Trust Security, Hybrid Cloud, and High Availability/Disaster Recovery (HA/DR).
@@ -46,7 +46,7 @@ Hien Le is a highly skilled Cloud & DevOps Engineer with over 9 years of profess
 
 ## Detailed Professional Experience
 
-### Aarista | DevOps Engineer (Sep 2024 – Present)
+### Aarista | DevOps Engineer (Sep 2023 – Present)
 *U.S.-based healthcare technology company specializing in cloud software and analytics.*
 - **Azure Platform Ownership:** Designed and owned end-to-end architecture using Container Apps, FrontDoor, Application Gateway, App Service, and Azure SQL.
 - **Compliance & Security:** Engineered infrastructure to meet strict **HIPAA** requirements, implementing private endpoints, network isolation, and managed identities.
