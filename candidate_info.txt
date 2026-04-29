@@ -1,7 +1,7 @@
 # Full Candidate Profile: Hien Le
 
 ## Executive Summary
-Hien Le is a highly skilled Cloud & DevOps Engineer with over 9 years of professional experience, including more than 3.5 years of deep specialization in Microsoft Azure and extensive experience across the AWS ecosystem. He specializes in architecting, building, and scaling mission-critical cloud infrastructure for diverse sectors including Healthcare (HIPAA compliant), Fintech, Automotive, and Media. Hien has a proven track record of leading engineering teams, managing thousands of cloud resources, and delivering significant business value through automation, cost optimization, and robust security architectures.
+Hien Le is a highly skilled Cloud & DevOps Engineer with over 9 years of professional experience, including extensive experience across the AWS ecosystem and about 5 years of deep specialization in Microsoft Azure and  He specializes in architecting, building, and scaling mission-critical cloud infrastructure for diverse sectors including Healthcare (HIPAA compliant), Fintech, Automotive, and Media. Hien has a proven track record of leading engineering teams, managing thousands of cloud resources, and delivering significant business value through automation, cost optimization, and robust security architectures.
 
 ---
 
@@ -46,7 +46,7 @@ Hien Le is a highly skilled Cloud & DevOps Engineer with over 9 years of profess
 
 ## Detailed Professional Experience
 
-### Aarista | DevOps Engineer (Sep 2023 – Present)
+### Aarista | DevOps Engineer (Sep 2023 – May 2026, ongoing)
 *U.S.-based healthcare technology company specializing in cloud software and analytics.*
 - **Azure Platform Ownership:** Designed and owned end-to-end architecture using Container Apps, FrontDoor, Application Gateway, App Service, and Azure SQL.
 - **Compliance & Security:** Engineered infrastructure to meet strict **HIPAA** requirements, implementing private endpoints, network isolation, and managed identities.
@@ -54,7 +54,7 @@ Hien Le is a highly skilled Cloud & DevOps Engineer with over 9 years of profess
 - **Operational Resilience:** Successfully mitigated a global Azure FrontDoor outage by implementing a Traffic Manager workaround within 30 minutes, ensuring service continuity.
 - **Performance Tuning:** Proactively resolved ~3 performance bottlenecks per month using Application Insights for root cause analysis.
 
-### Cinch | Systems Engineer (Freelancer) (May 2025 – Present)
+### Cinch | Systems Engineer (Freelancer) (May 2025 – May 2026, ongoing)
 *Asia’s leading Device-as-a-Service (DaaS) platform.*
 - **Sole DevOps Leadership:** Responsible for the entire infrastructure lifecycle, supporting 20+ microservices on AWS.
 - **Infrastructure from Scratch:** Architected and built the AWS environment using Terraform and Terragrunt with a modular, environment-specific structure.
