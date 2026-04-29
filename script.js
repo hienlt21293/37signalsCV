@@ -240,6 +240,7 @@ RULE:
 - DO NOT use markdown format AT ALL. Use plain text and bullet points only.
 - ALWAYS use the provided CANDIDATE INFORMATION (derived from candidate_info.txt) as the primary reference.
 - You can refer to page1.html through page7.html for additional context if needed.
+- Note: Overlapping tenures indicate concurrent roles. For analysis, evaluate each role independently. Do not assume shared projects, technologies, or responsibilities across roles unless explicitly stated.
 - Be professional, concise, and persuasive. 
 - Highlight strong alignments and honestly address minor gaps.`;
 
