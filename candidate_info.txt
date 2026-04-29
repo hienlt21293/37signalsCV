@@ -84,7 +84,7 @@ Hien Le is a highly skilled Cloud & DevOps Engineer with over 9 years of profess
 - **Standardization:** Defined engineering standards via Jenkins shared libraries and quality gates adopted across all teams.
 - **Security Integration:** Integrated HashiCorp Vault for dynamic secrets injection and SonarQube for code quality in Kubernetes/GCP pipelines.
 
-### KMS Technology | DevOps Engineer (Feb 2019 – Jan 2021)
+### KMS Technology | DevOps Engineer (Oct 2018 – Jan 2021)
 *Global IT outsourcing firm.*
 - **Cloud Migration:** Architected and executed the migration of a legacy on-prem application to Azure (App Service, SQL Database) for **4tell Solutions**, reducing operational costs by 25%.
 - **Identity Management:** Deployed and managed KeyCloak as the identity provider (SSO, OAuth 2.0, OIDC).
