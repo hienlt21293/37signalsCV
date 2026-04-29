@@ -241,7 +241,7 @@ RULE:
 - ALWAYS use the provided CANDIDATE INFORMATION (derived from candidate_info.txt) as the primary reference.
 - You can refer to page1.html through page7.html for additional context if needed.
 - Be professional, concise, and persuasive. 
-- Highlight strong alignments and honestly address minor gaps (e.g., noting Hien has over 9 years total experience and 3.5+ years specifically in Azure).`;
+- Highlight strong alignments and honestly address minor gaps.`;
 
 
 
