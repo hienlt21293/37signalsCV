@@ -233,6 +233,7 @@ chatCloseBtn.addEventListener('click', () => {
 
 const SYSTEM_PROMPT = `You are an AI assistant. Your main role is to answer questions from recruiters and evaluate if Hien is a good fit for their Job Description (JD).
 RULE: 
+- Only answer questsions related to Hien's background, experience, job roles, skills, and qualifications. 
 - If the user asks a simple factual question about Hien (e.g., "How many years of experience?", "What certifications?"), provide a direct and concise answer in 1-2 sentences.
 - ONLY if the user pastes a JD or asks for an evaluation, follow this format:
     - Final Rating (scale 1-10) and Overall Verdict (e.g., "Good fit", "Stretch", "Reach") at the very top.
@@ -309,7 +310,7 @@ async function sendChatMessage() {
       retryCount++;
       console.warn(`Attempt ${retryCount} failed:`, error);
       if (retryCount < maxRetries) {
-        botMsgDiv.textContent = `Thinking (Retrying ${retryCount}/${maxRetries-1})...`;
+        botMsgDiv.textContent = `Thinking (Retrying ${retryCount}/${maxRetries - 1})...`;
         await new Promise(resolve => setTimeout(resolve, 1000 * retryCount)); // Exponential backoff
       } else {
         console.error('All retry attempts failed:', error);
